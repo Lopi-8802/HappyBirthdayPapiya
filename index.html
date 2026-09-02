@@ -516,7 +516,7 @@
     <!-- 1. SCREEN: LOCK SCREEN (Passcode: 1013 - Jimin's Birthday) -->
     <div id="screen-lock" class="screen active">
         <div class="avatar-container">
-            <img src="Jimin.gif" alt="Chimmy" onerror="handleImageError(this, '🐥')">
+            <img src="Jimin.webp" alt="Chimmy" onerror="handleImageError(this, '🐥')">
         </div>
         <h3 style="margin-bottom: 15px;">Enter the passcode</h3>
         
@@ -559,7 +559,7 @@
     <div id="screen-welcome" class="screen">
         <h1 class="birthday-title">Happy Birthday, Papiya! 🌸</h1>
         <p style="font-size: 14px; margin-bottom: 20px; color: #888;">Are you ready for your birthday surprise?</p>
-        <img class="fallback-box" src="HBD.jpeg" alt="Jimin" onerror="handleImageError(this, '👋✨')">
+        <img class="fallback-box" src="HBD.jpg" alt="Jimin" onerror="handleImageError(this, '👋✨')">
         <button class="btn" onclick="nextScreen('screen-welcome', 'screen-balloons')">I am excited! ✨</button>
     </div>
 
@@ -591,7 +591,7 @@
     <div id="screen-bouquet" class="screen">
         <h2>Your Rose Bouquet 🌹</h2>
         <div class="bouquet-container">
-            <div class="love-tag tag1">I Purple You 💜</div>
+            <div class="love-tag tag1">I Love You 💜</div>
             <div class="love-tag tag2">You Make My World Beautiful ✨</div>
             <div class="love-tag tag3">My Favorite Person 🐥</div>
             <div class="love-tag tag4">My Serendipity 🌌</div>
@@ -632,7 +632,7 @@
     <div id="screen-gift" class="screen">
         <h2 id="gift-heading">Tap the gift! 🎁</h2>
         <div class="gift-box" id="gift-box-element" onclick="openGift()">🎁</div>
-        <img class="surprise-img" id="gift-surprise-img" src="LST.jpeg?auto=format&fit=crop&q=80&w=400" alt="Surprise" onerror="handleImageError(this, '🎉🎈✨')">
+        <img class="surprise-img" id="gift-surprise-img" src="LST.jpg?auto=format&fit=crop&q=80&w=400" alt="Surprise" onerror="handleImageError(this, '🎉🎈✨')">
         <p id="gift-subtext" style="font-size: 14px; font-weight: bold; display: none; color: var(--dark-pink);">Lots of love for you! Happy Birthday! ❤️</p>
         <button class="btn" id="restart-btn" style="display: none;" onclick="restartApp()">Replay surprise ❤️</button>
     </div>
@@ -657,7 +657,7 @@
     }
 
     // --- PASSCODE LOGIN LOGIC (Passcode: 1013) ---
-    const CORRECT_PASSCODE = "1013";
+    const CORRECT_PASSCODE = "0309";
     let currentInput = "";
 
     function updateDots() {
