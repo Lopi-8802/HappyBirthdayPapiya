@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Papiya! ❤️</title>
+<style>
+:root {
+--bg-color: #ffeef2;
+--primary-pink: #ffb7c5;
+--dark-pink: #ff6f91;
+--text-color: #5c3c43;
+--white: #ffffff;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+background-color: var(--bg-color);
+color: var(--text-color);
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+overflow: hidden;
+}
+
+.phone-container {
+width: 100%;
+max-width: 400px;
+height: 90vh;
+max-height: 800px;
+background: var(--white);
+border-radius: 30px;
+box-shadow: 0 15px 35px rgba(255, 111, 145, 0.2);
+border: 8px solid var(--primary-pink);
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+
+/* Screens Setup */
+.screen {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+text-align: center;
+transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+background-color: var(--bg-color);
+}
+
+.hidden {
+display: none !important;
+}
+
+/* --- SCREEN 1: PASSCODE LOCK --- */
+.lock-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+}
+
+.avatar-container {
+width: 130px;
+height: 130px;
+border-radius: 50%;
+border: 5px solid var(--primary-pink);
+overflow: hidden;
+margin-bottom: 15px;
+position: relative;
+}
+
+.avatar-container img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.passcode-dots {
+display: flex;
+gap: 15px;
+margin-bottom: 25px;
+}
+
+.dot {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+border: 2px solid var(--dark-pink);
+transition: background-color 0.2s;
+}
+
+.dot.filled {
+background-color: var(--dark-pink);
+}
+
+.keypad {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 15px;
+width: 80%;
+max-width: 250px;
+}
+
+.key {
+aspect-ratio: 1;
+border-radius: 50%;
+background-color: var(--white);
+border: 2px solid var(--primary-pink);
+color: var(--text-color);
+font-size: 20px;
+font-weight: bold;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: all 0.1s ease;
+user-select: none;
+}
+
+.key:active {
+background-color: var(--primary-pink);
+color: white;
+transform: scale(0.9);
+}
+
+/* --- STYLING UTILITIES --- */
+.gif-display {
+width: 180px;
+height: 180px;
+margin-bottom: 20px;
+object-fit: contain;
+}
+
+h2 {
+font-size: 24px;
+margin-bottom: 15px;
+color: var(--dark-pink);
+}
+
+M:
+p {
+font-size: 16px;
+line-height: 1.5;
+margin-bottom: 20px;
+}
+
+.btn {
+background-color: var(--dark-pink);
+color: white;
+border: none;
+padding: 12px 30px;
+font-size: 16px;
+font-weight: bold;
+border-radius: 25px;
+cursor: pointer;
+box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
+transition: transform 0.2s;
+}
+
+.btn:active {
+transform: scale(0.95);
+}
+
+/* --- SCREEN 2: WRONG PASSCODE --- */
+.error-title {
+color: #d9534f;
+font-size: 28px;
+font-weight: 800;
+}
+
+/* --- SCREEN 3: PROMPT (YES/NO) --- */
+.btn-group {
+display: flex;
+gap: 20px;
+width: 100%;
+justify-content: center;
+}
+
+.btn-yes {
+background-color: #4caf50;
+box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn-no {
+background-color: #f44336;
+box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+}
+
+/* --- SCREEN 5: WISH & LETTER --- */
+.scrollable-letter {
+background: rgba(255, 255, 255, 0.8);
+border-radius: 15px;
+padding: 20px;
+max-height: 60vh;
+overflow-y: auto;
+border: 2px dashed var(--primary-pink);
+text-align: left;
+font-size: 14px;
+}
+
+/* --- SCREEN 7: PHOTO CAROUSEL / CARD --- */
+.photo-card {
+background: white;
+padding: 15px;
+border-radius: 15px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+transform: rotate(-3deg);
+margin-bottom: 20px;
+}
+
+.photo-card img {
+width: 220px;
+height: 220px;
+object-fit: cover;
+border-radius: 8px;
+}
+
+.photo-caption {
+margin-top: 10px;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="phone-container">
+
+<div id="screen-lock" class="screen">
+<div class="lock-content">
+<div class="avatar-container">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Zma3pob2p6MDVvdHRpdmlmY29pZnloZ2Vpdm5tbndudnA1MHVtbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9f2hmeIUtWY9koCggl/giphy.gif" alt="Cute kitten">
+</div>
+<h3 style="margin-bottom: 15px;">Enter a passcode</h3>
+
+<div class="passcode-dots">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+
+<div class="keypad">
+<div class="key" onclick="pressKey('1')">1</div>
+<div class="key" onclick="pressKey('2')">2</div>
+<div class="key" onclick="pressKey('3')">3</div>
+<div class="key" onclick="pressKey('4')">4</div>
+<div class="key" onclick="pressKey('5')">5</div>
+<div class="key" onclick="pressKey('6')">6</div>
+<div class="key" onclick="pressKey('7')">7</div>
+<div class="key" onclick="pressKey('8')">8</div>
+<div class="key" onclick="pressKey('9')">9</div>
+<div class="key" onclick="pressKey('*')">*</div>
+<div class="key" onclick="pressKey('0')">0</div>
+<div class="key" onclick="pressKey('#')">#</div>
+</div>
+</div>
+</div>
+
+<div id="screen-wrong-passcode" class="screen hidden">
+
+<h2 class="error-title">WRONG PASSCODE!</h2>
+<img class="gif-display" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmtpajNld3pvdjRxamlyNjVrbnBrOGo4MnhubWNodmlidDF2MWN1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Yq1t3YLv9YI7fALo5m/giphy.gif" alt="Sad cat">
+<button class="btn" onclick="goToScreen('screen-lock')">TRY AGAIN</button>
+</div>
+
+<div id="screen-prompt" class="screen hidden">
+<h2>I made something special for you... do you wanna see?</h2>
+<img class="gif-display" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWh0ZGN3MWVnOWpxYnd4YnlreDlhZnpsZjNqNm40bWlqNzZ6djV2ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jS8X4P08rZ079vYfIF/giphy.gif" alt="Cats box">
+<div class="btn-group">
+<button class="btn btn-yes" onclick="goToScreen('screen-birthday-wish')">YES</button>
+<button class="btn btn-no" onclick="goToScreen('screen-no-response')">NO</button>
+</div>
+</div>
+
+<div id="screen-no-response" class="screen hidden">
+<h2 style="color: #d9534f;">Why did you click no?! 🥺</h2>
+<img class="gif-display" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnFlc2V2MDNpcWdqYzRwOHFmMTQzZ2J0NnhnaW50a2dyMm8wMmdzbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/P3176oAnf69749ALBF/giphy.gif" alt="Angry cat">
+<button class="btn" onclick="goToScreen('screen-prompt')">TRY AGAIN</button>
+</div>
+
+<div id="screen-birthday-wish" class="screen hidden">
+<h2 style="font-size: 20px;">HAPPY BIRTHDAY Dear 🎉</h2>
+<div class="scrollable-letter">
+<p><strong>Happiest birthday, my favorite human! 🎂</strong></p>
+<p>I wish may God bless you with all the happiness and success in your life. May you always be the happiest person and keep bringing smiles to everyone around you!</p>
+<p>You are the most beautiful part of my life. Thank you for always listening to me, supporting my silly ideas, and making me feel so incredibly loved. ❤️</p>
+<p>I hope you enjoy this little virtual card I crafted just for you!</p>
+</div>
+<button class="btn" style="margin-top: 15px;" onclick="goToScreen('screen-virtual-hug')">Next ❤️</button>
+</div>
+
+<div id="screen-virtual-hug" class="screen hidden">
+<h2>Virtual hug for ya! 🥰</h2>
+<img class="gif-display" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDVyOGI5bnJxbHRrYzNpNm82OTF5cG1icWF3bXgwdHpscmwwa3Q3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9d3LQ6TdV2Flo8ODTU/giphy.gif" alt="Cat Hug" style="width: 220px; height: 220px;">
+<h2>I MISS YOU</h2>
+<button class="btn" onclick="goToScreen('screen-final-photo')">Click for one last thing...</button>
+</div>
+
+<div id="screen-final-photo" class="screen hidden">
+<h2>Will you be mine? 🌹</h2>
+<div class="photo-card">
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=400" alt="Us">
+<div class="photo-caption">19/06/2024 ✨</div>
+</div>
+<button class="btn" onclick="resetApp()">Restart ❤️</button>
+</div>
+
+</div>
+
+<script>
+// Configuration
+const CORRECT_PASSCODE = "0309"; // Set your target passcode here!
+let currentInput = "";
+
+function updateDots() {
+const dots = document.querySelectorAll('.dot');
+dots.forEach((dot, index) => {
+if (index < currentInput.length) {
+dot.classList.add('filled');
+} else {
+dot.classList.remove('filled');
+}
+});
+}
+
+function pressKey(key) {
+if (currentInput.length < 4) {
+currentInput += key;
+updateDots();
+}
+
+// Check password when 4 digits are entered
+
+if (currentInput.length === 4) {
+setTimeout(() => {
+if (currentInput === CORRECT_PASSCODE) {
+goToScreen('screen-prompt');
+} else {
+goToScreen('screen-wrong-passcode');
+}
+currentInput = "";
+updateDots();
+}, 300);
+}
+}
+
+function goToScreen(screenId) {
+// Hide all screens
+const screens = document.querySelectorAll('.screen');
+screens.forEach(screen => {
+screen.classList.add('hidden');
+});
+
+// Show the targeted screen
+const targetScreen = document.getElementById(screenId);
+if (targetScreen) {
+targetScreen.classList.remove('hidden');
+}
+}
+
+function resetApp() {
+currentInput = "";
+updateDots();
+goToScreen('screen-lock');
+}
+</script>
+
+</body>
+</html>
